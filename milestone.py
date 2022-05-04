@@ -3,8 +3,7 @@ from datetime import date
 import numpy as np
 import yaml
 import os
-
-# reference: https://mentalitch.com/key-events-in-rock-and-roll-history/
+import urllib.request
 
 def create_milestone(dates, labels, as_file=None):
     fig, ax = plt.subplots(figsize=(15, 4), constrained_layout=True)
@@ -39,7 +38,6 @@ def create_milestone(dates, labels, as_file=None):
     for spine in ["left", "top", "right", "bottom"]:
         ax.spines[spine].set_visible(True)
         ax.spines[spine].set(bounds=0)
-        # pass
     
     # hide tick labels
     ax.set_xticks([])
@@ -55,8 +53,9 @@ def create_milestone(dates, labels, as_file=None):
         plt.savefig(f'output/{as_file}', bbox_inches='tight')
 
 def parse_yaml(url):
-    with open(url, 'r') as f:
-        dat = yaml.safe_load(f)
+    f = urllib.request.urlopen(url=url)
+    # with open(files, 'r') as f:
+    dat = yaml.safe_load(f)
 
     for d in dat:
         events = dat[d]['event']
@@ -68,4 +67,4 @@ def parse_yaml(url):
 
         create_milestone(dates=dates, labels=[date_labels, task_labels], as_file=f'{d}.jpg')
 
-parse_yaml(url='milestone.yaml')
+parse_yaml(url='https://raw.githubusercontent.com/neurodata/neurodata-software/main/doc/milestone.yaml')
