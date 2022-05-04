@@ -1,2 +1,2 @@
-# ndd-software-milestone
-ndd-software repo milestone image generator
+# neurodata-software-milestone
+neurodata-software repo milestone image generator
