@@ -1,0 +1,36 @@
+Oblique Trees:
+  event:
+    - Issue Opened in scikit-learn
+    - Initial PR made
+    - Approval Review from dev
+    - Final PR started
+    - Finalize PR 
+    - Close and merge
+  date:
+    - date(2021,8,15)
+    - date(2021,9,15)
+    - date(2022,3,15)
+    - date(2022,3,15)
+    - date(2022,6,15)
+    - date(2022,7,15)
+
+Honest Trees:
+  event:
+    - task1
+    - task2
+    - task3
+    - task4
+    - task5
+  date:
+    - date(2022,3,15)
+    - date(2022,4,15)
+    - date(2022,5,15)
+    - date(2022,6,15)
+    - date(2022,7,15)
+
+# - Binned Trees
+# - Streaming Trees
+# - MORF
+# - Graph Spectral Embedding
+# - AutoGMM
+# - Multivariate Feature Selection
