@@ -8,8 +8,8 @@ import urllib.request
 def create_milestone(dates, labels, as_file=None):
     fig, ax = plt.subplots(figsize=(15, 4), constrained_layout=True)
 
-    min_date = date(np.min(dates).year, np.min(dates).month, np.min(dates).day-5)
-    max_date = date(np.max(dates).year, np.max(dates).month, np.max(dates).day+5)
+    min_date = date(np.min(dates).year, np.min(dates).month, max(1, np.min(dates).day-5))
+    max_date = date(np.max(dates).year, np.max(dates).month, min(31, np.max(dates).day+5))
 
     ax.set_ylim(-2, 1.75)
     ax.set_xlim(min_date, max_date)
