@@ -65,6 +65,6 @@ def parse_yaml(url):
         date_labels = [f'{d:%^b %Y}\n' for d in dates]
         task_labels = [f'{l.upper()}' for l in events]
 
-        create_milestone(dates=dates, labels=[date_labels, task_labels], as_file=f'{d}.jpg')
+        create_milestone(dates=dates, labels=[date_labels, task_labels], as_file=f'{d}.svg')
 
 parse_yaml(url='https://raw.githubusercontent.com/neurodata/neurodata-software/main/doc/milestone.yaml')
