@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
+import matplotlib as mlp
+import matplotlib.dates as md
 from datetime import date
+import datetime
 import numpy as np
 import yaml
 import os
@@ -34,14 +37,23 @@ def create_milestone(dates, labels, as_file=None):
     plt.setp(markerline, marker=',', color='grey')
     plt.setp(stemline, linestyle='--', color='grey')
 
+    #add arrow
+    x0 = md.date2num(date.today())
+    # x0 = md.date2num(datetime.datetime(2022,6,2))
+    arrow = mlp.patches.FancyArrow(x=x0, y=0.5, dx=0.0, dy=-0.5, width=0.1, length_includes_head=True)
+    # arrow = mlp.patches.FancyArrow(x=0, y=0.5, dx=0, dy=-0.1, width=0.1)
+    ax.add_patch(arrow)
+    # plt.arrow(date.today(), 0.45, 100, -0.3, width=.15)#, length_includes_head=True)
+
     # hide lines around chart
     for spine in ["left", "top", "right", "bottom"]:
         ax.spines[spine].set_visible(True)
         ax.spines[spine].set(bounds=0)
     
+    # fig.autofmt_xdate()
     # hide tick labels
-    ax.set_xticks([])
-    ax.set_yticks([])
+    # ax.set_xticks([])
+    # ax.set_yticks([])
     
     # ax.set_title('Important Milestones in Rock and Roll', fontweight="bold", fontfamily='serif', fontsize=16, 
     #                 color='royalblue')
