@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import matplotlib as mlp
 import matplotlib.dates as md
 from datetime import date
-import datetime
 import numpy as np
 import yaml
 import os
@@ -14,7 +13,7 @@ def create_milestone(dates, labels, as_file=None):
     min_date = date(np.min(dates).year, np.min(dates).month, max(1, np.min(dates).day-5))
     max_date = date(np.max(dates).year, np.max(dates).month, min(31, np.max(dates).day+5))
 
-    ax.set_ylim(-2, 1.75)
+    ax.set_ylim(-1, 1.0)
     ax.set_xlim(min_date, max_date)
 
     # ax.axhline(0, xmin=0.05, xmax=0.95, c='grey', zorder=4)
@@ -39,24 +38,19 @@ def create_milestone(dates, labels, as_file=None):
 
     #add arrow
     x0 = md.date2num(date.today())
-    # x0 = md.date2num(datetime.datetime(2022,6,2))
-    arrow = mlp.patches.FancyArrow(x=x0, y=0.5, dx=0.0, dy=-0.5, width=0.1, length_includes_head=True)
-    # arrow = mlp.patches.FancyArrow(x=0, y=0.5, dx=0, dy=-0.1, width=0.1)
+    arrow = mlp.patches.FancyArrow(x=x0, y=0.3, dx=-0.0, dy=-0.20, width=3, head_width=10, head_length=0.1, length_includes_head=False, ec='red', fc='red')
     ax.add_patch(arrow)
-    # plt.arrow(date.today(), 0.45, 100, -0.3, width=.15)#, length_includes_head=True)
+    ax.text(x0, 0.35, 'WE ARE HERE', ha='center', fontweight='bold', color='red',fontsize=12)
 
     # hide lines around chart
     for spine in ["left", "top", "right", "bottom"]:
         ax.spines[spine].set_visible(True)
         ax.spines[spine].set(bounds=0)
     
-    # fig.autofmt_xdate()
+    fig.autofmt_xdate()
     # hide tick labels
-    # ax.set_xticks([])
-    # ax.set_yticks([])
-    
-    # ax.set_title('Important Milestones in Rock and Roll', fontweight="bold", fontfamily='serif', fontsize=16, 
-    #                 color='royalblue')
+    ax.set_xticks([])
+    ax.set_yticks([])
 
     if as_file:
         if not os.path.exists(path=f'output'):
