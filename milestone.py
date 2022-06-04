@@ -37,10 +37,10 @@ def create_milestone(dates, labels, as_file=None):
     plt.setp(stemline, linestyle='--', color='grey')
 
     #add arrow
-    x0 = md.date2num(date.today())
-    arrow = mlp.patches.FancyArrow(x=x0, y=0.3, dx=-0.0, dy=-0.20, width=3, head_width=10, head_length=0.1, length_includes_head=False, ec='red', fc='red')
-    ax.add_patch(arrow)
-    ax.text(x0, 0.35, 'WE ARE HERE', ha='center', fontweight='bold', color='red',fontsize=12)
+    # x0 = md.date2num(date.today())
+    # arrow = mlp.patches.FancyArrow(x=x0, y=0.25, dx=-0.0, dy=-0.15, width=3, head_width=10, head_length=0.1, length_includes_head=False, ec='k', fc='k')
+    # ax.add_patch(arrow)
+    # ax.text(x0, 0.3, 'WE ARE HERE', ha='center', fontweight='bold', color='red',fontsize=12)
 
     # hide lines around chart
     for spine in ["left", "top", "right", "bottom"]:
